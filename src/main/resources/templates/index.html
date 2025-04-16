@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Knut Onsøyen</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1f1f1f;
+            padding: 15px;
+            position: relative;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Hamburger ikon */
+        .menu-icon {
+            position: absolute;
+            left: 20px;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10; /* 🔥 Fikser at den ikke blir skjult */
+        }
+
+
+        .menu-icon div {
+            height: 4px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        /* Sidemeny */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: #1f1f1f;
+            transition: left 0.3s ease;
+            padding-top: 60px;
+        }
+
+        .side-menu a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+        }
+
+        .side-menu a:hover {
+            background-color: #333;
+        }
+
+        .side-menu.open {
+            left: 0;
+        }
+
+        /* Innhold */
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #ffffffcc;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ← alltid 3 kolonner */
+    gap: 30px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto; /* sentrer */
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <h1>Knut Onsøyen</h1>
+    </div>
+
+    <!-- Side-meny -->
+    <div id="sideMenu" class="side-menu">
+        <a href="/info">Info</a>
+        <a href="#">Kontakt</a>
+    </div>
+
+<!-- Innhold -->
+<div class="content">
+    <h2>Knut Onsøyen</h2>
+    <p>Trykk på menyen for å navigere.</p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-label">VVS</div>
+            <img src="/static/vvs.png" alt="VVS">
+        </div>
+        <div class="card">
+            <div class="card-label">Revit Plugins</div>
+            <img src="/static/revit.png" alt="Revit Plugins">
+        </div>
+        <div class="card">
+            <div class="card-label">Spill</div>
+            <img src="/static/game.png" alt="Spill">
+        </div>
+        <div class="card">
+            <div class="card-label">UiO</div>
+            <img src="/static/uio.png" alt="UiO">
+        </div>
+        <div class="card">
+            <div class="card-label">Calculators</div>
+            <img src="/static/calc.png" alt="Calculator">
+        </div>
+        <div class="card">
+            <div class="card-label">Kontakt</div>
+            <img src="/static/contact.png" alt="Kontakt">
+        </div>
+    </div>     
+</div>
+
+
+    <!-- JavaScript for meny -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("sideMenu");
+            menu.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
